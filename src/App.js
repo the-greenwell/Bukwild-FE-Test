@@ -76,7 +76,7 @@ function App() {
       if (path.length > 1 ) {
         setBackground(path)
       } else {
-        window.location.pathname = window.location.pathname.concat(data[0].slug);
+        window.location.pathname = window.location.pathname + data[0].slug;
         setBackground(data[0].slug);
       }
     }
