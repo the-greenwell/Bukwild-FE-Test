@@ -9,15 +9,15 @@ const Layout = ({data}) => {
   return(
     <>
       {/* Main Content */}
-      <div className='row feature'>
+      <div className='row max-width feature'>
         <p className='headline col col-stack'>{data.headline}</p>
         <p className='subhead col col-stack'>{data.subhead}</p>
       </div>
 
 
       {/* Footer */}
-      <div className='row callToAction'>
-        <p className='cta col col-stack'>{data.cta}</p>
+      <div className='row max-width footer'>
+        <p className='callToAction col col-stack'>{data.cta}</p>
         <p className='col col-stack'>LET'S TALK. <span className='orange'>→</span></p>
       </div>
     </>
@@ -31,6 +31,7 @@ function App() {
   /* State tracking current page for styling */
   const [page, setPage] = useState([]);
 
+  /* Use React Router History hook */
   const history = useHistory();
 
   const getData = () => {
@@ -59,7 +60,7 @@ function App() {
     })
     /* Won't set state if slug doesn't match data */
     if(selected) {
-      history.push('/' + selected.slug);
+      /* Sets state for content */
       setPage(selected.blocks[0]);
     }
   }
@@ -74,14 +75,14 @@ function App() {
 
   useEffect(() => {
     let path = window.location.href.replace(/(.*\/)/,'');
-    console.log(path)
     if(data.length > 0){
     /* Handle page refreshes */
       if (path.length > 0) {
-        console.log(data)
-        setBackground(data[0].slug);
-      } else {
         setBackground(path);
+      } else {
+        /* Handle initial render */
+        history.replace('/' + data[0].slug);
+        setBackground(data[0].slug);
       }
     }
   }, [data])
@@ -91,7 +92,7 @@ function App() {
         <div className='container'>
 
           {/* Page Header */}
-          <div className='header'>
+          <div className='max-width header'>
 
             {/* Logo and Contact row */}
             <div className='row'>
