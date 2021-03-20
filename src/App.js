@@ -52,13 +52,13 @@ function App() {
 
   const setBackground = (slug) => {
     /* Search for data-set mathing slug */
-    var selected = data.find((pages,index) => {
+    var selected = data.find((pages) => {
       if(pages.slug == slug) return true
-    });
+    })
     /* Won't set state if slug doesn't match data */
     if(selected) {
       setPage(selected.blocks[0]);
-    };
+    }
   }
 
   /* Get data before initial paint */
@@ -70,15 +70,14 @@ function App() {
   },[])
 
   useEffect(() => {
-    let path = window.location.pathname.replace(/(.*\/)/,'');
-    /* Handle page refreshes */
-    if (data.length > 0) {
-      if (path.length > 1 ) {
-        setBackground(path)
-      } else {
-        window.location.pathname = window.location.pathname + data[0].slug;
-        setBackground(data[0].slug);
-      }
+      let path = window.location.pathname.replace(/(.*\/)/,'');
+
+      /* Handle page refreshes */
+      if (data.length > 0 && path.length > 1) {
+        setBackground(path);
+      /* Handle initial page load */
+    } else if (data.length > 0 && path.length <= 1) {
+        window.location.pathname.concat(data[0].slug);
     }
   }, [data])
 
