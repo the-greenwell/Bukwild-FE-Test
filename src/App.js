@@ -79,7 +79,8 @@ function App() {
       /* Handle initial page load */
     } else if (data.length > 0 && path.length <= 1) {
         console.log(data[0], window.location.pathname);
-        window.location.pathname.concat(data[0].slug);
+        window.location.pathname = window.location.pathname.concat(data[0].slug);
+        setBackground(data[0].slug)
     }
   }, [data])
 
