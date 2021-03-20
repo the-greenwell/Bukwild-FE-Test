@@ -54,12 +54,11 @@ function App() {
     /* Search for data-set mathing slug */
     var selected = data.find((pages,index) => {
       if(pages.slug == slug) return true
-    })
+    });
     /* Won't set state if slug doesn't match data */
     if(selected) {
-      console.log('work')
-      setPage(selected.blocks[0])
-    }
+      setPage(selected.blocks[0]);
+    };
   }
 
   /* Get data before initial paint */
@@ -75,11 +74,13 @@ function App() {
 
       /* Handle page refreshes */
       if (data.length > 0 && path.length > 1) {
+        console.log('if');
         setBackground(path);
       /* Handle initial page load */
     } else if (data.length > 0 && path.length <= 1) {
+        console.log('elseif');
         window.location.pathname.concat(data[0].slug);
-      }
+    }
   }, [data])
 
   return (
