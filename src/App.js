@@ -78,7 +78,7 @@ function App() {
         setBackground(path);
       /* Handle initial page load */
     } else if (data.length > 0 && path.length <= 1) {
-        console.log('elseif');
+        console.log(data[0], window.location.pathname);
         window.location.pathname.concat(data[0].slug);
     }
   }, [data])
