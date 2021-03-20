@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Bukwild-FE-Test/static/css/main.d6bc7e4c.chunk.css",
-    "main.js": "/Bukwild-FE-Test/static/js/main.63ec5ddf.chunk.js",
-    "main.js.map": "/Bukwild-FE-Test/static/js/main.63ec5ddf.chunk.js.map",
+    "main.js": "/Bukwild-FE-Test/static/js/main.8865cd14.chunk.js",
+    "main.js.map": "/Bukwild-FE-Test/static/js/main.8865cd14.chunk.js.map",
     "runtime-main.js": "/Bukwild-FE-Test/static/js/runtime-main.147419a9.js",
     "runtime-main.js.map": "/Bukwild-FE-Test/static/js/runtime-main.147419a9.js.map",
     "static/js/2.d7cabdb8.chunk.js": "/Bukwild-FE-Test/static/js/2.d7cabdb8.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.147419a9.js",
     "static/js/2.d7cabdb8.chunk.js",
     "static/css/main.d6bc7e4c.chunk.css",
-    "static/js/main.63ec5ddf.chunk.js"
+    "static/js/main.8865cd14.chunk.js"
   ]
 }
