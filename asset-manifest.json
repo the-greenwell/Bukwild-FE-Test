@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Bukwild-FE-Test/static/css/main.d6bc7e4c.chunk.css",
-    "main.js": "/Bukwild-FE-Test/static/js/main.22024711.chunk.js",
-    "main.js.map": "/Bukwild-FE-Test/static/js/main.22024711.chunk.js.map",
+    "main.css": "/Bukwild-FE-Test/static/css/main.2f92ff56.chunk.css",
+    "main.js": "/Bukwild-FE-Test/static/js/main.a7f5cc36.chunk.js",
+    "main.js.map": "/Bukwild-FE-Test/static/js/main.a7f5cc36.chunk.js.map",
     "runtime-main.js": "/Bukwild-FE-Test/static/js/runtime-main.147419a9.js",
     "runtime-main.js.map": "/Bukwild-FE-Test/static/js/runtime-main.147419a9.js.map",
     "static/js/2.53946460.chunk.js": "/Bukwild-FE-Test/static/js/2.53946460.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.dfb4b0f2.chunk.js": "/Bukwild-FE-Test/static/js/3.dfb4b0f2.chunk.js",
     "static/js/3.dfb4b0f2.chunk.js.map": "/Bukwild-FE-Test/static/js/3.dfb4b0f2.chunk.js.map",
     "index.html": "/Bukwild-FE-Test/index.html",
-    "static/css/main.d6bc7e4c.chunk.css.map": "/Bukwild-FE-Test/static/css/main.d6bc7e4c.chunk.css.map",
+    "static/css/main.2f92ff56.chunk.css.map": "/Bukwild-FE-Test/static/css/main.2f92ff56.chunk.css.map",
     "static/js/2.53946460.chunk.js.LICENSE.txt": "/Bukwild-FE-Test/static/js/2.53946460.chunk.js.LICENSE.txt",
     "static/media/abc_logo.c72ca4e0.svg": "/Bukwild-FE-Test/static/media/abc_logo.c72ca4e0.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.147419a9.js",
     "static/js/2.53946460.chunk.js",
-    "static/css/main.d6bc7e4c.chunk.css",
-    "static/js/main.22024711.chunk.js"
+    "static/css/main.2f92ff56.chunk.css",
+    "static/js/main.a7f5cc36.chunk.js"
   ]
 }
