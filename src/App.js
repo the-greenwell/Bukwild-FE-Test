@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { NavLink, BrowserRouter as Router, Route } from 'react-router-dom';
+import { NavLink, Route, useHistory } from 'react-router-dom';
 
 import logo from './abc_logo.svg';
 
@@ -31,6 +31,8 @@ function App() {
   /* State tracking current page for styling */
   const [page, setPage] = useState([]);
 
+  const history = useHistory();
+
   const getData = () => {
     /* Fetch Data from included json */
     fetch(`${process.env.PUBLIC_URL}/data/content.json`
@@ -57,6 +59,7 @@ function App() {
     })
     /* Won't set state if slug doesn't match data */
     if(selected) {
+      history.push('/' + selected.slug);
       setPage(selected.blocks[0]);
     }
   }
@@ -70,20 +73,21 @@ function App() {
   },[])
 
   useEffect(() => {
-      let path = window.location.pathname.replace(/(.*\/)/,'');
-
-      /* Handle page refreshes */
-      if (data.length > 0 && path.length > 1) {
+    let path = window.location.href.replace(/(.*\/)/,'');
+    console.log(path)
+    if(data.length > 0){
+    /* Handle page refreshes */
+      if (path.length > 0) {
+        console.log(data)
+        setBackground(data[0].slug);
+      } else {
         setBackground(path);
-      /* Handle initial page load */
-    } else if (data.length > 0 && path.length <= 1) {
-        window.location.pathname.concat(data[0].slug);
+      }
     }
   }, [data])
 
   return (
     <div className="App" style={{ backgroundImage: `url('${process.env.PUBLIC_URL}/backgrounds/${page.background}')` }}>
-      <Router>
         <div className='container'>
 
           {/* Page Header */}
@@ -121,7 +125,6 @@ function App() {
             }/>
 
         </div>
-      </Router>
     </div>
   );
 }
