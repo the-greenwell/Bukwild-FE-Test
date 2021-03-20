@@ -72,10 +72,10 @@ function App() {
 
   useEffect(() => {
       /* Handle page refreshes */
-      if (data.length > 0 && window.location.pathname.length > 1) {
+      if (data.length > 0 && window.location.pathname.replace(/(.*\/)/,'').length > 1) {
         setBackground(window.location.pathname.replace(/(.*\/)/,''));
       /* Handle initial page load */
-      } else if (data.length > 0 && window.location.pathname.length <= 1) {
+      } else if (data.length > 0 && window.location.pathname.replace(/(.*\/)/,'').length <= 1) {
         window.location.pathname.concat(data[0].slug);
       }
   }, [data])
