@@ -1,23 +1,126 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
+import { NavLink, BrowserRouter as Router, Route } from 'react-router-dom';
+
+import logo from './abc_logo.svg';
+
+
+const Layout = ({data}) => {
+  return(
+    <>
+      {/* Main Content */}
+      <div className='row feature'>
+        <p className='headline col col-stack'>{data.headline}</p>
+        <p className='subhead col col-stack'>{data.subhead}</p>
+      </div>
+
+
+      {/* Footer */}
+      <div className='row callToAction'>
+        <p className='cta col col-stack'>{data.cta}</p>
+        <p className='col col-stack'>LET'S TALK. <span className='orange'>→</span></p>
+      </div>
+    </>
+  )
+};
 
 function App() {
+  /* State for initial data fetch */
+  const [data, setData] = useState([]);
+
+  /* State tracking current page for styling */
+  const [page, setPage] = useState([]);
+
+  const getData = () => {
+    /* Fetch Data from included json */
+    fetch('/data/content.json'
+      ,{
+          headers : {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           }
+      })
+      /* Format 'server' response to readable format */
+      .then(function(response){
+        return response.json();
+      })
+      /* Making data available to app via state */
+      .then(function(myJson){
+        setData(myJson.pages);
+      });
+  }
+
+  const setBackground = (slug) => {
+    /* Search for data-set mathing slug */
+    var selected = data.find((pages,index) => {
+      if(pages.slug == slug) return true
+    })
+    /* Won't set state if slug doesn't match data */
+    if(selected) {
+      console.log('work')
+      setPage(selected.blocks[0])
+    }
+  }
+
+  /* Get data before initial paint */
+  useEffect(()=>{
+    getData();
+    /* Fade in animation to handle flicker from initial render */
+    let element = document.querySelector('.App');
+    element.classList.add('fade-in');
+  },[])
+
+  useEffect(() => {
+      /* Handle page refreshes */
+      if (data.length > 0 && window.location.pathname.length > 1) {
+        setBackground(window.location.pathname.replace(/\\|\//g,''));
+      /* Handle initial page load */
+      } else if (data.length > 0 && window.location.pathname.length <= 1) {
+        window.location.pathname = `/${data[0].slug}`
+      }
+  }, [data])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{ backgroundImage: `url('/backgrounds/${page.background}')` }}>
+      <Router>
+        <div className='container'>
+
+          {/* Page Header */}
+          <div className='header'>
+
+            {/* Logo and Contact row */}
+            <div className='row'>
+              <img src={logo} className='logo col' alt='ABC Logo'/>
+              <div className='contact col'>
+                Contact Us
+              </div>
+            </div>
+
+            {/* Nav Menu */}
+            <ul className='menu'>
+              {
+                data.map((page)=> <li key={page.slug}>
+                                      <NavLink
+                                        activeClassName='orange'
+                                        to={page.slug}
+                                        onClick={() => setBackground(page.slug)}
+                                      >
+                                          {page.title}
+                                      </NavLink>
+                                  </li>)
+              }
+            </ul>
+          </div>
+
+          {/* Route to Layout component */}
+          <Route
+            path='/:slug'
+            render={
+              () => <Layout data={page} />
+            }/>
+
+        </div>
+      </Router>
     </div>
   );
 }
