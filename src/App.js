@@ -70,17 +70,15 @@ function App() {
   },[])
 
   useEffect(() => {
-      let path = window.location.pathname.replace(/(.*\/)/,'');
-
-      /* Handle page refreshes */
-      if (data.length > 0 && path.length > 1) {
-        console.log('if');
-        setBackground(path);
-      /* Handle initial page load */
-    } else if (data.length > 0 && path.length <= 1) {
-        console.log(data[0], window.location.pathname);
+    let path = window.location.pathname.replace(/(.*\/)/,'');
+    /* Handle page refreshes */
+    if (data.length > 0) {
+      if (path.length > 1 ) {
+        setBackground(path)
+      } else {
         window.location.pathname = window.location.pathname.concat(data[0].slug);
-        setBackground(data[0].slug)
+        setBackground(data[0].slug);
+      }
     }
   }, [data])
 
