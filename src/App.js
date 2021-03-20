@@ -33,7 +33,7 @@ function App() {
 
   const getData = () => {
     /* Fetch Data from included json */
-    fetch('/data/content.json'
+    fetch(process.env.PUBLIC_URL + '/data/content.json'
       ,{
           headers : {
             'Content-Type': 'application/json',
