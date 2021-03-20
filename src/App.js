@@ -81,7 +81,7 @@ function App() {
   }, [data])
 
   return (
-    <div className="App" style={{ backgroundImage: `url('/backgrounds/${page.background}')` }}>
+    <div className="App" style={{ backgroundImage: `url('${process.env.PUBLIC_URL}/backgrounds/${page.background}')` }}>
       <Router>
         <div className='container'>
 
