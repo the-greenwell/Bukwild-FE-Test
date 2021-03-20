@@ -76,7 +76,7 @@ function App() {
         setBackground(window.location.pathname.replace(/(.*\/)/,''));
       /* Handle initial page load */
       } else if (data.length > 0 && window.location.pathname.length <= 1) {
-        window.location.pathname.concat(`/${data[0].slug}`);
+        window.location.pathname.concat(data[0].slug);
       }
   }, [data])
 
