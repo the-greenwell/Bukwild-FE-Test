@@ -125,7 +125,7 @@ html, body {
 }
 
 /* Column Switching */
-@media (max-width: 675px) {
+@media (max-width: 921px) {
   .col-stack {
     grid-column: span 12;
     text-align: center;
