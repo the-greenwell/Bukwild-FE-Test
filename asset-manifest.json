@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Bukwild-FE-Test/static/css/main.6a44daa9.chunk.css",
+    "main.css": "/Bukwild-FE-Test/static/css/main.ecf3bbb6.chunk.css",
     "main.js": "/Bukwild-FE-Test/static/js/main.96ec1ee2.chunk.js",
     "main.js.map": "/Bukwild-FE-Test/static/js/main.96ec1ee2.chunk.js.map",
     "runtime-main.js": "/Bukwild-FE-Test/static/js/runtime-main.147419a9.js",
@@ -10,14 +10,14 @@
     "static/js/3.dfb4b0f2.chunk.js": "/Bukwild-FE-Test/static/js/3.dfb4b0f2.chunk.js",
     "static/js/3.dfb4b0f2.chunk.js.map": "/Bukwild-FE-Test/static/js/3.dfb4b0f2.chunk.js.map",
     "index.html": "/Bukwild-FE-Test/index.html",
-    "static/css/main.6a44daa9.chunk.css.map": "/Bukwild-FE-Test/static/css/main.6a44daa9.chunk.css.map",
+    "static/css/main.ecf3bbb6.chunk.css.map": "/Bukwild-FE-Test/static/css/main.ecf3bbb6.chunk.css.map",
     "static/js/2.53946460.chunk.js.LICENSE.txt": "/Bukwild-FE-Test/static/js/2.53946460.chunk.js.LICENSE.txt",
     "static/media/abc_logo.c72ca4e0.svg": "/Bukwild-FE-Test/static/media/abc_logo.c72ca4e0.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.147419a9.js",
     "static/js/2.53946460.chunk.js",
-    "static/css/main.6a44daa9.chunk.css",
+    "static/css/main.ecf3bbb6.chunk.css",
     "static/js/main.96ec1ee2.chunk.js"
   ]
 }
