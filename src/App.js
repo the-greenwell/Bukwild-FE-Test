@@ -67,11 +67,10 @@ function App() {
 
   /* Get data before initial paint */
   useEffect(()=>{
-    getData().then(() => {
-      /* Fade in animation to handle flicker from initial render */
-      let element = document.querySelector('.App');
-      element.classList.add('fade-in');
-    });
+    getData();
+    /* Fade in animation to handle flicker from initial render */
+    let element = document.querySelector('.App');
+    element.classList.add('fade-in');
   },[])
 
   useEffect(() => {
