@@ -44,11 +44,11 @@ function App() {
            }
       })
       /* Format 'server' response to readable format */
-      .then(function(response){
+      .then((response) => {
         return response.json();
       })
       /* Making data available to app via state */
-      .then(function(myJson){
+      .then((myJson) => {
         setData(myJson.pages);
       });
   }
